@@ -11,7 +11,7 @@ public class CarrotMove : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        
+        speed = Random.Range(6.5f, 8.0f);
     }
 
     // Update is called once per frame
