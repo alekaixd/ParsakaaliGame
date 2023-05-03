@@ -12,12 +12,18 @@ public class bulle : MonoBehaviour
     {
         rb= GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
-
+        StartCoroutine(DestroyBullet());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }

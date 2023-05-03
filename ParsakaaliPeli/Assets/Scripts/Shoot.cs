@@ -7,19 +7,18 @@ public class Shoot : MonoBehaviour
     public Transform shootpoint;
     public float rotationSpeed;
     public GameObject bulletPreFab;
+    private bool canShoot = true;
     
     void Start()
     {
-        Debug.Log("Starttaa");
 
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("Ampuu");
-            Instantiate(bulletPreFab, shootpoint.position, transform.rotation);
+            StartCoroutine(ShootBullet(0.2f));
         }
 
 
@@ -50,4 +49,17 @@ public class Shoot : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, 0, currentAngle);
     }
 
+    
+
+
+    private IEnumerator ShootBullet(float fireSpeed)
+    {
+        if(canShoot == true)
+        {
+            Instantiate(bulletPreFab, shootpoint.position, transform.rotation);
+            canShoot = false;
+            yield return new WaitForSeconds(fireSpeed);
+            canShoot = true;
+        }
+    }
 }

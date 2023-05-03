@@ -11,13 +11,20 @@ public class CarrotMove : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        gameObject.transform.LookAt(player.transform, Vector3.up);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         // gameObject.transform.Translate(gameObject.transform.position - player.transform.position * speed * Time.deltaTime);
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed);
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, player.transform.position, speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+
+        // take damage
     }
 }
