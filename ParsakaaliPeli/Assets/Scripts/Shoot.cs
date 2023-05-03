@@ -21,6 +21,8 @@ public class Shoot : MonoBehaviour
             Debug.Log("Ampuu");
             Instantiate(bulletPreFab, shootpoint.position, transform.rotation);
         }
+
+
         if (Input.GetKey(KeyCode.D))
         {
             // Rotate to the right
@@ -32,5 +34,20 @@ public class Shoot : MonoBehaviour
             transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         }
 
+        float currentAngle = transform.localEulerAngles.z;
+        if (currentAngle > 180)
+        {
+            currentAngle = currentAngle - 360;
+        }
+        if (currentAngle > 90)
+        {
+            currentAngle = 90;
+        }
+        else if (currentAngle < -90)
+        {
+            currentAngle = -90;
+        }
+        transform.localEulerAngles = new Vector3(0, 0, currentAngle);
     }
+
 }
