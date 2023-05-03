@@ -22,6 +22,9 @@ public class CarrotSpawner : MonoBehaviour
     public void SpawnCarrot()
     {
         gameObject.transform.rotation = Quaternion.AngleAxis(Random.Range(-90.0f, 90.0f), new Vector3(0, 0, 1));
+        GameObject instantiatedObject = Instantiate(carrotPrefab, spawnPosition.transform);
+        instantiatedObject.transform.SetParent(null);
+        
     }
 
     private IEnumerator SpawnDelay()

@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {fileID: 1625278653}
-  carrotPrefab: {fileID: 0}
+  carrotPrefab: {fileID: 7666092426963446910, guid: e40397472ea77d64eba3a44d87c063c9, type: 3}
 --- !u!4 &1875031373
 Transform:
   m_ObjectHideFlags: 0
